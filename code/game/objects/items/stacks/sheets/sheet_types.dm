@@ -753,3 +753,21 @@ new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperfra
 	amount = 20
 /obj/item/stack/sheet/sandblock/five
 	amount = 5
+
+/obj/item/stack/sheet/stoneblock
+	name = "stone"
+	desc = "Blocks of stone."
+	singular_name = "stone block"
+	icon_state = "sheet-stone"
+	inhand_icon_state = "sheet-stone"
+	mats_per_unit = list(/datum/material/gravel=MINERAL_MATERIAL_AMOUNT)
+	merge_type = /obj/item/stack/sheet/stoneblock
+	material_type = /datum/material/gravel
+	material_modifier = 1
+
+/obj/item/stack/sheet/stoneblock/fifty
+	amount = 50
+/obj/item/stack/sheet/stoneblock/twenty
+	amount = 20
+/obj/item/stack/sheet/stoneblock/five
+	amount = 5

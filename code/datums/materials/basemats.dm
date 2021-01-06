@@ -373,6 +373,24 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	victim.adjust_disgust(17)
 	return TRUE
 
+/datum/material/gravel
+	name = "gravel"
+	desc = "You know, it's amazing just how structurally sound gravel can be."
+	color = "#797779"
+	categories = list(MAT_CATEGORY_RIGID = TRUE)
+	sheet_type = /obj/item/stack/sheet/stoneblock
+	value_per_unit = 0.0001
+	strength_modifier = 0.5
+	integrity_modifier = 0.1
+	armor_modifiers = list(MELEE = 0.25, BULLET = 0.25, LASER = 1.25, ENERGY = 0.25, BOMB = 0.25, BIO = 0.25, RAD = 1.5, FIRE = 1.5, ACID = 1.5)
+	beauty_modifier = 0.20
+	turf_sound_override = FOOTSTEP_GENERIC_HEAVY
+	texture_layer_icon_state = "sand"
+
+/datum/material/gravel/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
+	victim.adjust_disgust(17)
+	return TRUE
+
 //And now for our lavaland dwelling friends, sand, but in stone form! Truly revolutionary.
 /datum/material/sandstone
 	name = "sandstone"
@@ -384,6 +402,18 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	armor_modifiers = list(MELEE = 0.5, BULLET = 0.5, LASER = 1.25, ENERGY = 0.5, BOMB = 0.5, BIO = 0.25, RAD = 1.5, FIRE = 1.5, ACID = 1.5)
 	beauty_modifier = 0.3
 	turf_sound_override = FOOTSTEP_WOOD
+	texture_layer_icon_state = "brick"
+
+/datum/material/stone
+	name = "stone"
+	desc = "Common material, found everywhere."
+	color = "#797779"
+	categories = list(MAT_CATEGORY_RIGID = TRUE)
+	sheet_type = /obj/item/stack/sheet/mineral/stone
+	value_per_unit = 0.00025
+	armor_modifiers = list(MELEE = 0.5, BULLET = 0.5, LASER = 1.25, ENERGY = 0.5, BOMB = 0.5, BIO = 0.25, RAD = 1.5, FIRE = 1.5, ACID = 1.5)
+	beauty_modifier = 0.3
+	turf_sound_override = FOOTSTEP_GENERIC_HEAVY
 	texture_layer_icon_state = "brick"
 
 /datum/material/snow

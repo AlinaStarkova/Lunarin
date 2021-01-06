@@ -22,6 +22,7 @@
 	attachment_holes = FALSE
 	/// Itemstack to drop when dug by a shovel
 	var/obj/item/stack/digResult = /obj/item/stack/ore/glass/basalt
+	var/obj/item/stack/digGravel = /obj/item/stack/ore/gravel
 	/// Whether the turf has been dug or not
 	var/dug
 
@@ -35,6 +36,7 @@
 /// Drops itemstack when dug and changes icon
 /turf/open/floor/plating/asteroid/proc/getDug()
 	new digResult(src, 5)
+	new digGravel(src, 3)
 	if(postdig_icon_change)
 		if(!postdig_icon)
 			icon_plating = "[environment_type]_dug"
