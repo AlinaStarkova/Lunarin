@@ -81,6 +81,7 @@
 		return attack_hand(user)
 
 /turf/closed/mineral/proc/gets_drilled(user, give_exp = FALSE)
+	new /obj/item/stack/ore/gravel(get_turf(src), 3)
 	if (mineralType && (mineralAmt > 0))
 		new mineralType(src, mineralAmt)
 		SSblackbox.record_feedback("tally", "ore_mined", mineralAmt, mineralType)

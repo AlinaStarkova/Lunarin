@@ -2,6 +2,7 @@
 Mineral Sheets
 	Contains:
 		- Sandstone
+		- Stone
 		- Sandbags
 		- Diamond
 		- Snow
@@ -48,6 +49,36 @@ GLOBAL_LIST_INIT(sandstone_recipes, list ( \
 	. += GLOB.sandstone_recipes
 
 /obj/item/stack/sheet/mineral/sandstone/thirty
+	amount = 30
+
+/*
+ * Stone
+ */
+
+GLOBAL_LIST_INIT(stone_recipes, list ( \
+	new/datum/stack_recipe("pile of dirt", /obj/machinery/hydroponics/soil, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),\
+	new/datum/stack_recipe("Breakdown into gravel", /obj/item/stack/ore/gravel, 2, one_per_turf = FALSE, on_floor = TRUE) \
+	))
+
+/obj/item/stack/sheet/mineral/stone
+	name = "stone brick"
+	desc = "This appears to be stone bricks."
+	singular_name = "stone brick"
+	icon_state = "sheet-stone"
+	inhand_icon_state = "sheet-stone"
+	throw_speed = 3
+	throw_range = 5
+	mats_per_unit = list(/datum/material/stone=MINERAL_MATERIAL_AMOUNT)
+	sheettype = "stone"
+	merge_type = /obj/item/stack/sheet/mineral/stone
+	walltype = null
+	material_type = /datum/material/stone
+
+/obj/item/stack/sheet/mineral/stone/get_main_recipes()
+	. = ..()
+	. += GLOB.stone_recipes
+
+/obj/item/stack/sheet/mineral/stone/thirty
 	amount = 30
 
 /*

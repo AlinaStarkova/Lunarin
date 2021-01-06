@@ -140,6 +140,44 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	mine_experience = 0
 	merge_type = /obj/item/stack/ore/glass/basalt
 
+/obj/item/stack/ore/gravel
+	name = "gravel pile"
+	icon_state = "gravel"
+	inhand_icon_state = "gravel"
+	singular_name = "pebble"
+	points = 0
+	mats_per_unit = list(/datum/material/stone=MINERAL_MATERIAL_AMOUNT)
+	refined_type = null
+	w_class = WEIGHT_CLASS_TINY
+	mine_experience = 0 //its gravel
+	merge_type = /obj/item/stack/ore/gravel
+
+GLOBAL_LIST_INIT(gravel_recipes, list(\
+		new /datum/stack_recipe("stone", /obj/item/stack/sheet/mineral/stone, 2, 1, 50)\
+))
+
+/obj/item/stack/ore/gravel/get_main_recipes()
+	. = ..()
+	. += GLOB.gravel_recipes
+
+/obj/item/stack/ore/gravel/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	if(..() || !ishuman(hit_atom))
+		return
+	var/mob/living/carbon/human/C = hit_atom
+	if(C.is_eyes_covered())
+		C.visible_message("<span class='danger'>[C]'s eye protection blocks the gravel!</span>", "<span class='warning'>Your eye protection blocks the gravel!</span>")
+		return
+	C.adjust_blurriness(6)
+	C.adjustStaminaLoss(15)//the pain from your eyes burning does stamina damage
+	C.add_confusion(5)
+	to_chat(C, "<span class='userdanger'>\The [src] gets into your eyes! The pain, it burns!</span>")
+	qdel(src)
+
+/obj/item/stack/ore/gravel/ex_act(severity, target)
+	if (severity == EXPLODE_NONE)
+		return
+	qdel(src)
+
 /obj/item/stack/ore/plasma
 	name = "plasma ore"
 	icon_state = "Plasma ore"
