@@ -807,7 +807,6 @@
 #include "code\game\machinery\fat_sucker.dm"
 #include "code\game\machinery\firealarm.dm"
 #include "code\game\machinery\flasher.dm"
-#include "code\game\machinery\forge.dm"
 #include "code\game\machinery\gulag_item_reclaimer.dm"
 #include "code\game\machinery\gulag_teleporter.dm"
 #include "code\game\machinery\harvester.dm"
@@ -3300,3 +3299,6 @@
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
 // END_INCLUDE
+
+// MANUAL_INCLUDE
+#include "lunarin\machines\forge.dm"

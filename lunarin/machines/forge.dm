@@ -1,6 +1,6 @@
 /obj/machinery/forge
 	name = "forge"
-	icon = 'icons/obj/smithing.dmi'
+	icon = 'lunarin/icons/smithing.dmi'
 	desc = "A large forge made of stone bricks"
 	verb_say = "beeps"
 	verb_yell = "blares"
